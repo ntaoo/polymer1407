@@ -1,0 +1,29 @@
+<link rel="import" href="packages/core_elements/core_icon_button.html">
+<link rel="import" href="packages/paper_elements/paper_icon_button.html">
+
+<polymer-element name="iconissue-element">
+  <template>
+    <style>
+    </style>
+    <button on-click="{{clicked}}"></button>
+    <!-- Without icon, works -->
+    <paper-icon-button on-click="{{clicked}}"></paper-icon-button>
+    <!-- DOM Exception when subdir2 -->
+    <paper-icon-button icon="menu" on-click="{{clicked}}"></paper-icon-button>
+    <!-- DOM Exception when subdir2 -->
+    <core-icon-button icon="menu" on-click="{{clicked}}"></core-icon-button>
+  </template>
+  <script type="application/dart">
+    import 'dart:html';
+    import 'package:polymer/polymer.dart';
+
+    @CustomTag('iconissue-element')
+    class IconissueElement extends PolymerElement {
+      IconissueElement.created() : super.created() {
+      }
+      void clicked() {
+        print('clicked');
+      }
+    }
+  </script>
+</polymer-element>
